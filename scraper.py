@@ -11,7 +11,7 @@ LEADERBOARD_URL = 'https://mcsrranked.com/api/leaderboard'
 #PLayers winning LCQ -> Move straight into playoffs
 LCQ_WINNERS = ['HDMICables', 'steezFemboy', 'Pinne', 'steez']
 
-#Note: Watermelon got banned even though he did make it into playoffs -> Hax replaces with (13th place)
+#Note: Watermelon got banned even though he has enough points to qualify for playoffs -> Hax replaces with (13th place)
 BANNED_PLAYERS = {'Watermelon1708': 'hackingnoises'} 
 
 
@@ -121,6 +121,7 @@ if __name__ == "__main__":
 
     players_data = players.get('data', {}).get('users', [])
     for user in players_data:
+
         params_matches = {'season': '9',
                         'type': '2'}
         user_uuid = user.get('uuid')
