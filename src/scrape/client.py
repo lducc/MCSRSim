@@ -1,6 +1,5 @@
 """
-    Pure API client for the MCSR Ranked API.
-    One method per endpoint, stateless, no business logic.
+    This is an API client to handle requests for the MCSR Ranked API
 """
 import requests
 import time, json
@@ -15,7 +14,7 @@ class MCSRClient:
         self.rate_limit = rate_limit
 
     def _get(self, endpoint: str, params: Dict = None) -> Dict:
-        response = self.session.get(f"{self.BASE_URL}/{endpoint}", params=params, timeout=15)
+        response = self.session.get(f"{self.BASE_URL}/{endpoint}", params=params)
         response.raise_for_status()
         time.sleep(self.rate_limit)
         return response.json()
@@ -57,7 +56,6 @@ class MCSRClient:
     #     return data.get("data", data)
 
     # def get_uuid_map(self, season: int, use_phase: bool = False) -> Dict[str, str]:
-    #     """Returns a mapping of {'nickname': 'uuid'} from the leaderboard."""
     #     if use_phase:
     #         users = self.get_phase_leaderboard(season)
     #     else:

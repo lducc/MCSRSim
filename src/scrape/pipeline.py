@@ -1,7 +1,6 @@
 """
-    Pipeline orchestrator for scraping MCSR Ranked match data.
-    Handles pagination, deduplication, disk caching, and progress tracking.
-    Uses MCSRClient via composition (not inheritance).
+    This is a pipeline orchestrator to compile all the players and ranked matches data
+    using the MCSR Ranked API.
 """
 
 import os, json
@@ -9,7 +8,6 @@ import time
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 from enum import Enum
-from matplotlib import use
 from tqdm import tqdm
 
 from .client import MCSRClient
