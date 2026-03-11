@@ -1,0 +1,1 @@
+from .player_loader import load_players
